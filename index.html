@@ -1,0 +1,20 @@
+<html><head><title>MUED - Multi-User Ed</title>
+<style>
+iframe, textarea {width:99%;height:48%} 
+</style>
+</head><body>
+<iframe name='out' src='data:text/plain,Ed output will appear here'></iframe>
+<form action='/cgi-bin/ed.sh' method='post' target='out' id='f'>
+<textarea name='t' id='t' placeholder='Type Ed commands here, submit by Ctrl+Enter.
+Content is auto-saved - "w" command added at the end automatically.
+You can start with ,p to see what others typed.'></textarea>
+</form>
+<script>
+$=(x)=>document.querySelector(x);
+$('#t').onkeydown=(event)=>{
+	if (event.ctrlKey && event.keyCode === 13) {
+		$('#f').submit();
+	}
+}
+</script>
+</body></html>
